@@ -1,0 +1,47 @@
+version: '2'
+services:
+  minio1:
+    image: minio/minio
+    volumes:
+      - 'minio_data1:/export'
+    ports:
+      - '9001:9000'
+    environment:
+      MINIO_ACCESS_KEY: 58W2KOI78SDA58TNW3E7
+      MINIO_SECRET_KEY: f6JSH05TMlNouNMIV5iRwOmeaGa62K0j4XB0Oy5X
+    command: 'server http://minio{1...4}/export'
+  minio2:
+    image: minio/minio
+    volumes:
+      - 'minio_data2:/export'
+    ports:
+      - '9002:9000'
+    environment:
+      MINIO_ACCESS_KEY: 58W2KOI78SDA58TNW3E7
+      MINIO_SECRET_KEY: f6JSH05TMlNouNMIV5iRwOmeaGa62K0j4XB0Oy5X
+    command: 'server http://minio{1...4}/export'
+  minio3:
+    image: minio/minio
+    volumes:
+      - 'minio_data3:/export'
+    ports:
+      - '9003:9000'
+    environment:
+      MINIO_ACCESS_KEY: 58W2KOI78SDA58TNW3E7
+      MINIO_SECRET_KEY: f6JSH05TMlNouNMIV5iRwOmeaGa62K0j4XB0Oy5X
+    command: 'server http://minio{1...4}/export'
+  minio4:
+    image: minio/minio
+    volumes:
+      - 'minio_data4:/export'
+    ports:
+      - '9004:9000'
+    environment:
+      MINIO_ACCESS_KEY: 58W2KOI78SDA58TNW3E7
+      MINIO_SECRET_KEY: f6JSH05TMlNouNMIV5iRwOmeaGa62K0j4XB0Oy5X
+    command: 'server http://minio{1...4}/export'
+volumes:
+  minio_data1: null
+  minio_data2: null
+  minio_data3: null
+  minio_data4: null
