@@ -1,4 +1,4 @@
-docker run --detach \
+docker run -d \
   --name filebrowser \
   --restart always \
   -v /data/files:/srv \

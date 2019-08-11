@@ -1,9 +1,11 @@
-docker run --detach \
+docker run -d \
   --name gitlab \
-  --hostname git.yuhenabc.com \
-  --publish 8433:443 --publish 8080:80 --publish 8022:22 \
   --restart always \
-  --volume /data/gitlab/config:/etc/gitlab \
-  --volume /data/gitlab/logs:/var/log/gitlab \
-  --volume /data/gitlab/opt:/var/opt/gitlab \
+  --hostname git.yuhenabc.com \
+  -p 8433:443 \
+  -p 8080:80 \
+  -p 8022:22 \
+  -v /data/gitlab/config:/etc/gitlab \
+  -v /data/gitlab/logs:/var/log/gitlab \
+  -v /data/gitlab/opt:/var/opt/gitlab \
   gitlab/gitlab-ce

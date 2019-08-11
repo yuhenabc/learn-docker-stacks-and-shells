@@ -1,5 +1,6 @@
 docker run -d \
   --name jenkins \
+  --restart always \
   -u root \
   -p 8080:8080 \
   -v jenkins_data:/var/jenkins_home \
