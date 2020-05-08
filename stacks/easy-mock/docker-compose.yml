@@ -1,0 +1,38 @@
+version: '2'
+
+services:
+  mongodb:
+    image: mongo:latest
+    volumes:
+      # ./data/db 数据库文件存放地址，根据需要修改为本地地址
+      - '/data/docker/easymock/db:/data/db'
+    networks:
+      - network
+    restart: always
+
+  redis:
+    image: redis:latest
+    command: redis-server --appendonly yes
+    volumes:
+      # ./data/redis redis 数据文件存放地址，根据需要修改为本地地址
+      - '/data/docker/easymock/redis:/data'
+    networks:
+      - network
+    restart: always
+
+  web:
+    image: easymock/easymock:latest
+    command: /bin/bash -c "npm start"
+    ports:
+      - 7300:7300
+    volumes:
+      # 日志地址，根据需要修改为本地地址
+      - '/data/docker/easymock/logs:/home/easy-mock/easy-mock/logs'
+      # 配置地址，请使用本地配置地址替换
+      # - './production.json:/home/easy-mock/easy-mock/config/production.json'
+    networks:
+      - network
+    restart: always
+
+networks:
+  network:
