@@ -1,4 +1,5 @@
-# please create /data/docker folder first use root authority
+# please create the following folders with root authority:
+# /data/docker
 
 docker run -d \
   --name gitlab \
