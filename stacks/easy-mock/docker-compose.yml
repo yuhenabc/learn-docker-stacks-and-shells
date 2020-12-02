@@ -6,6 +6,7 @@ services:
     volumes:
       # ./data/db 数据库文件存放地址，根据需要修改为本地地址
       - '/data/docker/easymock/db:/data/db'
+      - '/data/docker/easymock/configdb:/data/configdb'
     networks:
       - network
     restart: always
